@@ -17,24 +17,26 @@ O Citi Bike é um sistema de bicicletas compartilhadas que fornece um meio de tr
 ## Descrição do Dataset
 
 O dataset contém as seguintes colunas:
-- **station_id**: Identificador único da estação.
-- **num_bikes_available**: Número de bicicletas disponíveis.
-- **num_ebikes_available**: Número de bicicletas elétricas disponíveis.
-- **num_bikes_disabled**: Número de bicicletas fora de serviço.
-- **num_docks_available**: Número de docas disponíveis.
-- **num_docks_disabled**: Número de docas fora de serviço.
-- **is_installed**: Se a estação está instalada (1) ou não (0).
-- **is_renting**: Se a estação está disponível para aluguel (1) ou não (0).
-- **is_returning**: Se a estação está disponível para devolução (1) ou não (0).
-- **station_status_last_reported**: Data e hora do último relatório de status da estação.
-- **station_name**: Nome da estação.
-- **lat**: Latitude da estação.
-- **lon**: Longitude da estação.
-- **region_id**: Identificador da região onde a estação está localizada.
-- **capacity**: Capacidade total da estação.
-- **has_kiosk**: Se a estação possui um quiosque (1) ou não (0).
-- **station_information_last_updated**: Data e hora da última atualização das informações da estação.
-- **missing_station_information**: Se há informações faltando sobre a estação (1) ou não (0).
+
+- **station_id**: Identificador único da estação (ex.: 3195).
+- **num_bikes_available**: Número de bicicletas disponíveis na estação (ex.: 25).
+- **num_ebikes_available**: Número de bicicletas elétricas disponíveis na estação (ex.: \N para dados ausentes, 0 para nenhuma bicicleta elétrica disponível).
+- **num_bikes_disabled**: Número de bicicletas fora de serviço na estação (ex.: \N para dados ausentes, 0 para nenhuma bicicleta fora de serviço).
+- **num_docks_available**: Número de docas disponíveis na estação (ex.: 13).
+- **num_docks_disabled**: Número de docas fora de serviço na estação (ex.: \N para dados ausentes, 1 para uma doca fora de serviço).
+- **is_installed**: Se a estação está instalada (1) ou não (0) (ex.: 1).
+- **is_renting**: Se a estação está disponível para aluguel (1) ou não (0) (ex.: 1).
+- **is_returning**: Se a estação está disponível para devolução (1) ou não (0) (ex.: 1).
+- **station_status_last_reported**: Data e hora do último relatório de status da estação, representado como um timestamp Unix (ex.: 1547045888).
+- **station_name**: Nome da estação (ex.: Montgomery St).
+- **lat**: Latitude da estação (ex.: 40.71942).
+- **lon**: Longitude da estação (ex.: -74.05099).
+- **region_id**: Identificador da região onde a estação está localizada (ex.: 70).
+- **capacity**: Capacidade total da estação, ou seja, o número máximo de bicicletas e docas (ex.: 14).
+- **has_kiosk**: Se a estação possui um quiosque (1) ou não (0) (ex.: true).
+- **station_information_last_updated**: Data e hora da última atualização das informações da estação, representado como um timestamp Unix (ex.: 1564692450).
+- **missing_station_information**: Se há informações faltando sobre a estação (1) ou não (0) (ex.: false).
+
 
 ## Objetivos do Projeto
 
