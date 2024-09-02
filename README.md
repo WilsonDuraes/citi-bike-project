@@ -4,17 +4,19 @@
 
 O Citi Bike é um sistema de compartilhamento de bicicletas em Nova York, operado pela Motivate e financiado pela empresa de transporte público da cidade. O objetivo deste projeto é analisar os dados do Citi Bike para entender padrões de uso, avaliar a disponibilidade de bicicletas e otimizar a distribuição nas estações.
 
-## Referências de Aquisição do Dataset
+## Sobre o Dataset
 
-- **Fonte dos Dados**: [Citi Bike Stations Dataset](https://www.kaggle.com/datasets/rosenthal/citi-bike-stations)
-- **Descrição**: O dataset contém informações sobre as estações do Citi Bike, incluindo a disponibilidade de bicicletas e docas, a localização das estações e a capacidade de cada estação.
-- **Período da Coleta**: (Inclua o período de coleta dos dados, se disponível.)
+O Citi Bike de Nova York possui uma API pública em tempo real que segue a Especificação Geral de Feed de Compartilhamento de Bicicletas. Esta API contém informações sobre o número de bicicletas e docas disponíveis em cada estação de NYC.
 
-## Descrição da Origem
+Desde 2016, a API pública foi consultada a cada 2 minutos e os resultados foram armazenados. Este dataset contém todos esses resultados, desde 15/08/2016 até 08/12/2021. Os dados estão disponíveis no formato CSV, que pode não ser ideal para grandes volumes de dados, mas é um formato universalmente aceito. Para análises extensivas, recomenda-se converter os CSVs para formatos como parquet.
 
-O Citi Bike é um sistema de bicicletas compartilhadas que fornece um meio de transporte sustentável para residentes e visitantes de Nova York. Os dados foram coletados das estações do Citi Bike e refletem a disponibilidade de bicicletas e docas, status das estações e informações de localização.
+Em 2019, foi feita uma atualização para consultar a API através de uma função Lambda e também começou-se a consultar a API de informações das estações semanalmente para coletar dados sobre cada estação, como nome, latitude e longitude. No entanto, os dados de informações das estações estão ausentes entre 2016 e 08/2019. É possível preencher esses dados com as informações mais antigas disponíveis para cada estação, embora isso não garanta precisão.
 
-## Descrição do Dataset
+## Detalhes do Dataset
+
+- **Arquivos CSV**: O dataset está dividido em 50 arquivos CSV, cada um contendo dados históricos para um determinado `station_id`. As estações são distribuídas aleatoriamente entre esses arquivos para reduzir o tamanho individual dos arquivos.
+- **Informações de Estações**: As informações das estações estão ausentes para dados anteriores a 08/2019. A coluna `missing_station_information` indica quando essas informações estão faltando. As informações da estação são precisas dentro de um período de 7 dias antes da atualização mais recente.
+- **Formato dos Dados**: Os arquivos CSV foram gerados por uma consulta `CREATE TABLE AS` no AWS Athena usando o formato TEXTFILE. Portanto, valores nulos são demarcados como `\N`. As colunas de timestamp, `station_status_last_reported` e `station_information_last_updated`, estão em unidades de tempo POSIX/UNIX (segundos desde 1970-01-01 00:00:00 UTC).
 
 O dataset contém as seguintes colunas:
 
